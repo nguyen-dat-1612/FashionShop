@@ -1,6 +1,6 @@
 {
-    "liveServer.settings.host": "192.168.1.118",
+    "liveServer.settings.host": "localhost",
     "liveServer.settings.proxy": {
-        "proxyUri": "http://192.168.1.118:80"
+        "proxyUri": "http://localhost:80"
     }
 }

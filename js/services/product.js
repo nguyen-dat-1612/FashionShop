@@ -39,20 +39,22 @@ async function fetchProducts() {
 
             return `
                 <div class="col-md-3">
-                    <div class="card product-card">
-                        <img src="${productImage}" class="card-img-top" alt="${product.name}">
-                        <div class="card-body">
-                            <h5 class="card-title">${productName}</h5>
-                            <p class="card-text">$${productPrice.toFixed(2)}</p>
-                            <button class="btn btn-primary w-100 add-to-cart" 
-                                data-id="${product.id}" 
-                                data-name="${product.name}" 
-                                data-price="${productPrice}" 
-                                data-image="${productImage}">
-                                Add to Cart
-                            </button>
+                    <a href="productdetails.html" class="text-decoration-none text-dark">
+                        <div class="card product-card">
+                            <img src="${productImage}" class="card-img-top" alt="${product.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${productName}</h5>
+                                <p class="card-text">$${productPrice.toFixed(2)}</p>
+                                <button class="btn btn-primary w-100 add-to-cart" 
+                                    data-id="${product.id}" 
+                                    data-name="${product.name}" 
+                                    data-price="${productPrice}" 
+                                    data-image="${productImage}">
+                                    Add to Cart
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             `;
         }).join("");

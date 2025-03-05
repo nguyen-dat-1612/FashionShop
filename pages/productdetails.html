@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles/productdetails.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+
+    <div id="header"></div> <!-- Load header ở đây -->
+
+    <!--Thông tin sản phẩm-->
+    <div class="container-fluid center">
+        <div class="product">
+            <img src="https://product.hstatic.net/200000195587/product/ao-thun-bo-doi_d2094e7037d348c98b25252f1d805530_master.jpg" alt="Áo bóng đá Arsenal">
+            <div class="details">
+                <h2>Bộ quần áo đá bóng Arsenal - FEX Gai Thái, Logo Thêu</h2>
+                <p class="price">180.000 VNĐ</p>
+                <p class="stock">Còn hàng: 15 sản phẩm</p>
+                <p class="rating">Đánh giá: ⭐⭐⭐⭐⭐ (12 đánh giá)</p>
+                <div class="size-selection">
+                    <p>Chọn kích thước:</p>
+                    <button class="size-btn">S (45-55kg)</button>
+                    <button class="size-btn">M (55-65kg)</button>
+                    <button class="size-btn">L (65-75kg)</button>
+                    <button class="size-btn">XL (75-85kg)</button>
+                </div>
+                <div class="color-selection">
+                    <p>Chọn màu sắc:</p>
+                    <button class="color-btn" style=" color: black;">Nâu</button>
+                    <button class="color-btn" style=" color: black;">Đen</button>
+                    <button class="color-btn" style=" color: black;">Xanh</button>
+                </div>
+                <div class="quantity-selector">
+                    <button type="button">-</button>
+                    <input type="text" value="1">
+                    <button type="button">+</button>
+                </div>
+                <div class="buttons">
+                    <button>Thêm vào giỏ hàng</button>
+                    <button>Mua ngay</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Deal sản phẩm-->
+        <h3 class ="title_deal">Mua thêm deal sốc</h3>
+        <div class="bundle">
+            <div class="bundle-items">
+                <img src="https://product.hstatic.net/200000195587/product/ao-thun-bo-doi_d2094e7037d348c98b25252f1d805530_master.jpg" alt="Bộ quần áo bóng đá">
+                <p>Bộ quần áo đá bóng Arsenal<br><strong>180.000 VNĐ</strong></p>
+                <span>+</span>
+                <div class="bundle-items">
+                    <div class="deal-item">
+                        <input type="checkbox" id="dealCheckbox">
+                    </div>
+                    <div class="deal-item">
+                        <img src="https://product.hstatic.net/200000195587/product/ao-thun-bo-doi_d2094e7037d348c98b25252f1d805530_master.jpg" alt="Quần short nam">
+                    </div>
+                    <div class="deal-item">
+                        <p>Quần short nam thể thao <button id="openPopup">🎨</button><br> <strong>180.000 VNĐ</strong></p>
+                        <p id="selectedOptions"></p>
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div class="bundle-summary">
+                <p><strong>Tổng cộng: 200.000 VNĐ</strong></p>
+                <p>Tiết kiệm: 160.000 VNĐ</p>
+                <button>Bấm để mua deal sốc</button>
+            </div>
+        </div>
+
+        <!--Popup chọn màu sắc và kích thước-->
+        <div class="overlay" id="overlay"></div>
+        <div class="popup" id="popup">
+            <h3>Chọn màu sắc và kích thước</h3>
+            <p>Chọn kích thước:</p>
+            <button class="size-btn" data-size="S">S</button>
+            <button class="size-btn" data-size="M">M</button>
+            <button class="size-btn" data-size="L">L</button>
+            <button class="size-btn" data-size="XL">XL</button>
+            <p>Chọn màu sắc:</p>
+            <button class="color-btn" data-color="Nâu">Nâu</button>
+            <button class="color-btn" data-color="Đen">Đen</button>
+            <button class="color-btn" data-color="Xanh">Xanh</button>
+            <br><br>
+            <button id="confirmSelection">Xác nhận</button>
+            <button id="closePopup">Đóng</button>
+        </div>
+
+        <!--Mô tả sản phẩm-->
+
+        <div class="description">
+            <h3>Mô tả sản phẩm</h3>
+            <p>- Màu sắc: Màu sắc, mẫu mã giống hình.</p>
+            <p>- Logo thêu/in Cực tinh tế và chắc chắn.</p>
+            <p>- Kích cỡ: S - M - L - XL - XXL ( Form Châu Âu )</p>
+            <p>- Chất liệu: Vải Polyester</p>
+            <p>- Form: Châu Âu</p>
+            <p>- Quy cách: Nguyên bộ</p>
+        </div>
+    </div>
+
+    <div id="footer"></div> <!-- Load footer ở đây -->
+    <script type="module" src="/js/services/login.js"></script>
+    <script>
+        // JavaScript để xử lý sự kiện chọn màu sắc và kích thước
+        document.querySelectorAll('.size-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+    
+        document.querySelectorAll('.color-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.color-btn').forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            const quantityInput = document.querySelector(".quantity-selector input");
+            const minusButton = document.querySelector(".quantity-selector button:first-of-type");
+            const plusButton = document.querySelector(".quantity-selector button:last-of-type");
+    
+            if (quantityInput && minusButton && plusButton) { // Kiểm tra xem có tồn tại các phần tử không
+                minusButton.addEventListener("click", function() {
+                    let currentValue = parseInt(quantityInput.value) || 1;
+                    if (currentValue > 1) {
+                        quantityInput.value = currentValue - 1;
+                    }
+                });
+    
+                plusButton.addEventListener("click", function() {
+                    let currentValue = parseInt(quantityInput.value) || 1;
+                    quantityInput.value = currentValue + 1;
+                });
+    
+                // Đảm bảo người dùng chỉ nhập số hợp lệ
+                quantityInput.addEventListener("input", function() {
+                    if (isNaN(this.value) || this.value < 1) {
+                        this.value = 1;
+                    }
+                });
+            }
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            // Load header và footer
+            fetch("/pages/components/header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header").innerHTML = data;
+
+                    // Đợi header tải xong rồi mới khởi tạo dropdown tài khoản
+                    setTimeout(initializeAccountDropdown, 100);
+                });
+
+            fetch("/pages/components/footer.html")
+                .then(response => response.text())
+                .then(data => document.getElementById("footer").innerHTML = data);
+        });
+
+        function initializeAccountDropdown() {
+            const accountButton = document.querySelector(".account-dropdown-button"); // Cập nhật selector đúng với header
+            const dropdownMenu = document.querySelector(".account-dropdown-menu");
+
+            if (accountButton && dropdownMenu) {
+                accountButton.addEventListener("click", function(event) {
+                    event.stopPropagation(); // Ngăn sự kiện click lan ra ngoài
+                    dropdownMenu.classList.toggle("show");
+                });
+
+                document.addEventListener("click", function(event) {
+                    if (!accountButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                        dropdownMenu.classList.remove("show");
+                    }
+                });
+            } else {
+                console.warn("Không tìm thấy nút tài khoản hoặc menu dropdown.");
+            }
+        }
+        let selectedSize = "";
+        let selectedColor = "";
+
+        document.getElementById("openPopup").addEventListener("click", function() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        });
+
+        document.getElementById("closePopup").addEventListener("click", function() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        });
+
+        document.querySelectorAll(".size-btn").forEach(button => {
+            button.addEventListener("click", function() {
+                document.querySelectorAll(".size-btn").forEach(btn => btn.classList.remove("selected"));
+                this.classList.add("selected");
+                selectedSize = this.getAttribute("data-size");
+            });
+        });
+
+        document.querySelectorAll(".color-btn").forEach(button => {
+            button.addEventListener("click", function() {
+                document.querySelectorAll(".color-btn").forEach(btn => btn.classList.remove("selected"));
+                this.classList.add("selected");
+                selectedColor = this.getAttribute("data-color");
+            });
+        });
+
+        document.getElementById("confirmSelection").addEventListener("click", function() {
+            if (selectedSize && selectedColor) {
+                document.getElementById("selectedOptions").innerText = `Đã chọn: ${selectedColor}, Size ${selectedSize}`;
+                document.getElementById("popup").style.display = "none";
+                document.getElementById("overlay").style.display = "none";
+            } else {
+                alert("Vui lòng chọn đầy đủ thông tin!");
+            }
+        });
+    </script>
+    </script>
+</body>
+</html>    
